@@ -17,6 +17,6 @@ public class BlockGenerator : MonoBehaviour
 
     private void CreateBlock()
     {
-        Instantiate(block, new Vector3(Random.Range(-20, 20) * 0.5f, 7f,0f), new Quaternion());
+        Instantiate(block, new Vector3(Random.Range(-15, 15) * 0.66f, 7f,0f), new Quaternion());
     }
 }

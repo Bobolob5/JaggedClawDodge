@@ -28,15 +28,18 @@ public class PlayerDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Block") && !isInvuln)
+        if (collision.gameObject.CompareTag("Block"))
         {
-            isInvuln = true;
-            playerHealth--;
-            if (playerHealth == 0)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Destroy(collision.gameObject);
+            if (!isInvuln) { 
+                isInvuln = true;
+                playerHealth--;
+                if (playerHealth == 0)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
+                Invoke("makeVuln", 2);
             }
-            Invoke("makeVuln", 2);
         }
     }
 
